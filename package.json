@@ -3,7 +3,7 @@
     "displayName": "DolceTools for Unity",
     "version": "0.1.0",
     "unity": "2022.3",
-    "description": "Unity editor utility tools for VRChat users.",
+    "description": "VRChat ユーザー向け Unity エディタ拡張",
     "author": {
         "name": "dolce9"
     },
