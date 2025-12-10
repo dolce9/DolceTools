@@ -45,7 +45,6 @@ jobs:
       # Configure the Environment Variables needed for releasing the Package
       - name: Set Environment Variables
         run: |
-          # Base name for generated packages
           zipBase="DolceTools"
           echo "zipBase=${zipBase}" >> $GITHUB_ENV
           echo "zipFile=${zipBase}-${{ steps.version.outputs.value }}.zip" >> $GITHUB_ENV
