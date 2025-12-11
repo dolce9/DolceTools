@@ -23,7 +23,7 @@ VRChat 用 Unity 拡張です。初めて作った自分用ツールのため、
 
 ## 📦 インストール方法（VPM / VCC）
 
-1. 次のページから「VCC に追加」をクリック：https://dolce9.github.io/vpm/
+1. 次のページから「Add to VCC」をクリック：https://dolce9.github.io/vpm/
 2. プロジェクトの「Manage Project」から **DolceTools for Unity** をインストールしてください。
 
 ---
