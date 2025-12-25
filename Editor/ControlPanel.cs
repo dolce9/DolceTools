@@ -15,6 +15,7 @@ namespace DolceTools
         private bool shortcutToggleEditorOnlyActiveEnabled;
         private bool shortcutAddDLTCommentToSelectedEnabled;
 
+        private Vector2 scrollPosition;
         private Texture2D windowIcon;
 
         private void OnEnable()
@@ -34,16 +35,38 @@ namespace DolceTools
 
         public static void OpenWindow()
         {
-            GetWindow<ControlPanel>("DolceTools");
+            GetWindow<ControlPanel>("DolceTools 設定");
         }
 
         private void OnGUI()
+        {
+            DrawTitle();
+
+            EditorGUILayout.Space();
+
+            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+
+            DrawHierarchySection();
+            EditorGUILayout.Space();
+            DrawProjectSection();
+            EditorGUILayout.Space();
+            DrawShortcutSection();
+
+            EditorGUILayout.EndScrollView();
+
+            EditorGUILayout.Space();
+            DrawApplySection();
+            EditorGUILayout.Space();
+        }
+
+        private void DrawTitle()
         {
             GUIStyle titleStyle = new GUIStyle(EditorStyles.boldLabel)
             {
                 fontSize = 22,
                 fontStyle = FontStyle.Bold
             };
+
             GUILayout.BeginHorizontal();
             if (windowIcon != null)
             {
@@ -53,12 +76,10 @@ namespace DolceTools
             }
             GUILayout.Label("DolceTools for Unity", titleStyle);
             GUILayout.EndHorizontal();
-            
-            GUILayout.Space(8);
+        }
 
-            // ------------------------------
-            // Hierarchy 拡張機能
-            // ------------------------------
+        private void DrawHierarchySection()
+        {
             GUILayout.Label("Hierarchy 拡張機能", EditorStyles.boldLabel);
 
             hierarchyEditorOnlyBackgroundEnabled = EditorGUILayout.ToggleLeft(
@@ -76,21 +97,18 @@ namespace DolceTools
                 hierarchyIconsEnabled
             );
 
-            EditorGUI.indentLevel++;
             EditorGUI.BeginDisabledGroup(!hierarchyIconsEnabled);
-            hierarchyDltCommentIconEnabled = EditorGUILayout.ToggleLeft(
-                "DLT Comment を表示",
-                hierarchyDltCommentIconEnabled
-            );
+                EditorGUI.indentLevel++;
+                hierarchyDltCommentIconEnabled = EditorGUILayout.ToggleLeft(
+                    "DLT Comment を表示",
+                    hierarchyDltCommentIconEnabled
+                );
+                EditorGUI.indentLevel--;
             EditorGUI.EndDisabledGroup();
-            EditorGUI.indentLevel--;
+        }
 
-            EditorGUILayout.Space(12);
-
-
-            // ==============================
-            // Project 拡張機能
-            // ==============================
+        private void DrawProjectSection()
+        {
             GUILayout.Label("Project 拡張機能", EditorStyles.boldLabel);
 
             projectShowFileExtensionsEnabled = EditorGUILayout.ToggleLeft(
@@ -102,13 +120,10 @@ namespace DolceTools
                 "ファイル数を表示",
                 projectShowFolderFileCountEnabled
             );
+        }
 
-            GUILayout.Space(12);
-
-
-            // ==============================
-            // Project 拡張子表示
-            // ==============================
+        private void DrawShortcutSection()
+        {
             GUILayout.Label("ショートカット", EditorStyles.boldLabel);
 
             // OS に応じてショートカット表記を切り替え
@@ -132,14 +147,12 @@ namespace DolceTools
                 $"選択中の GameObject に Comment を追加 ({keyAddComment})",
                 shortcutAddDLTCommentToSelectedEnabled
             );
+        }
 
-            GUILayout.Space(12);
-
-
-            // ==============================
-            // 適用ボタン
-            // ==============================
+        private void DrawApplySection()
+        {
             EditorGUI.BeginDisabledGroup(!IsDirty());
+
             if (GUILayout.Button("適用"))
             {
                 EnabledFlags.Project.ShowFileExtensions        = projectShowFileExtensionsEnabled;
@@ -154,14 +167,12 @@ namespace DolceTools
                 ProjectExtensions.ApplySetting();
                 HierarchyExtensions.ApplySetting();
             }
+
             EditorGUI.EndDisabledGroup();
+        }
 
-            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
-
-
-            // ==============================
-            // ツール操作
-            // ==============================
+        private void DrawToolsSection()
+        {
             GUILayout.Label("その他操作", EditorStyles.boldLabel);
             GUILayout.Space(5);
 
