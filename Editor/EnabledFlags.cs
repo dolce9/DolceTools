@@ -1,7 +1,7 @@
 // Assets/DolceTools/Editor/EnabledFlags.cs
 using UnityEditor;
 
-namespace DolceTools
+namespace DolceTools.Editor
 {
     public static class EnabledFlags
     {

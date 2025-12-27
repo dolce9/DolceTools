@@ -4,7 +4,7 @@ using UnityEditor;
 using System;
 using System.Collections.Generic;
 
-namespace DolceTools
+namespace DolceTools.Editor
 {
     [InitializeOnLoad]
     public static class HierarchyExtensions

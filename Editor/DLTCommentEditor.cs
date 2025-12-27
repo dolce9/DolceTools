@@ -4,7 +4,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace DolceTools
+namespace DolceTools.Editor
 {
     [CustomEditor(typeof(DLTComment))]
     public class DLTCommentEditor : UnityEditor.Editor

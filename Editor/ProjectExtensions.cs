@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
 
-namespace DolceTools
+namespace DolceTools.Editor
 {
     [InitializeOnLoad]
     public static class ProjectExtensions

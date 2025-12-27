@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace DolceTools
+namespace DolceTools.Editor
     {
     public class ControlPanel : EditorWindow
     {
