@@ -45,7 +45,7 @@ namespace DolceTools.Editor
                 set => EditorPrefs.SetBool(PrefKey_EditorOnlyButtonEnabled, value);
             }
 
-            private const string PrefKey_DLTCommentIconEnabled = "DolceTools_Hierarchy_DLTCommentEnabled";
+            private const string PrefKey_DLTCommentIconEnabled = "DolceTools_HierarchyDLTCommentEnabled";
             public static bool DLTCommentIconEnabled   
             {
                 get => EditorPrefs.GetBool(PrefKey_DLTCommentIconEnabled, true);
@@ -53,6 +53,16 @@ namespace DolceTools.Editor
             }
         }
 
+        public static class Inspector
+        {
+            private const string PrefKey_InspectorTransformEnabled = "DolceTools_InspectorTransformEnabled";
+            public static bool InspectorTransformEnabled
+            {
+                get => EditorPrefs.GetBool(PrefKey_InspectorTransformEnabled, true);
+                set => EditorPrefs.SetBool(PrefKey_InspectorTransformEnabled, value);
+            }
+        }
+        
         public static class Shortcut
         {
             private const string PrefKey_ToggleEditorOnlyActive = "DolceTools_ToggleEditorOnlyActive";
@@ -69,5 +79,7 @@ namespace DolceTools.Editor
                 set => EditorPrefs.SetBool(PrefKey_AddDLTCommentToSelected, value);
             }
         }
+
+
     }
 }
