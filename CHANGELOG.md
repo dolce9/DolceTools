@@ -5,7 +5,14 @@
 フォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) に基づきます。
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に従います。
 
-## [Unreleased]
+
+## [unreleased]
+
+### 変更
+- 設定パネルのデザインを変更
+
+
+## [0.1.0]
 
 ### 追加
 - Hierarchy 拡張
@@ -21,3 +28,4 @@
 
 
 [unreleased]: https://github.com/dolce9/DolceTools
+[0.1.0]: https://github.com/dolce9/DolceTools/releases/tag/0.1.0
