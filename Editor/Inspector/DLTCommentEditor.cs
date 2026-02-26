@@ -22,7 +22,7 @@ namespace DolceTools.Editor
 
             EditorGUILayout.BeginVertical("HelpBox");
             EditorGUILayout.PropertyField(commentTextProp,
-                new GUIContent("コメント（NDMF によりビルド時に削除されます）")
+                new GUIContent("コメント")
             );
             EditorGUILayout.EndVertical();
 
